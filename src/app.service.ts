@@ -10,18 +10,11 @@ export class AppService {
     return 'Hello World!';
   }
 
-  createUser(
-    name: string,
-    email: string,
-    organization: string,
-    pass: string,
-  ): Promise<User> {
-    const user = {
-      name,
-      email,
-      organization,
-      password: pass,
-    };
+  createUser(user: User): Promise<User> {
     return this.userService.createUser(user);
+  }
+
+  findUserByName(name: string) {
+    return this.userService.findOne(name);
   }
 }
